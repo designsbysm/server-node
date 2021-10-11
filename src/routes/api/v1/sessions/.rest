@@ -1,0 +1,26 @@
+POST http://{{host}}:{{port}}/api/v1/session/login
+Content-Type: application/json
+
+{
+  "username": "{{adminU}}",
+	"password": "{{adminP}}"
+}
+
+###
+
+POST http://{{host}}:{{port}}/api/v1/session/logout
+Authorization: Bearer {{token}}
+
+###
+
+GET http://{{host}}:{{port}}/api/v1/session/saml
+Content-Type: application/json
+
+###
+
+POST http://{{host}}:{{port}}/api/v1/session/saml/response
+
+###
+
+POST http://{{host}}:{{port}}/api/v1/session/valid
+Authorization: Bearer {{token}}
