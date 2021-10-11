@@ -1,5 +1,5 @@
 {
-  "name": "@designsbysm/mern-starter",
+  "name": "@designsbysm/server-node",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
