@@ -1,2 +1,2 @@
-GET http://{{host}}:{{port}}/api/v1/server
+GET {{host}}/api/v1/server
 Authorization: Bearer {{token}}

@@ -37,11 +37,11 @@ const schema = mongoose.Schema({
   },
 });
 
-schema.methods.decodeToken = function(header, secret) {
+schema.methods.decodeToken = function (header, secret) {
   return jwt.verify(header.replace("Bearer ", ""), secret);
 };
 
-schema.methods.generateToken = function(secret) {
+schema.methods.generateToken = function (secret) {
   let seconds = 8 * 60 * 60;
   if (isDev()) {
     seconds = 365 * 24 * 60 * 60;
@@ -61,11 +61,11 @@ schema.methods.generateToken = function(secret) {
   };
 };
 
-schema.methods.generatePasswordHash = function(password) {
+schema.methods.generatePasswordHash = function (password) {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(10));
 };
 
-schema.methods.validatePasswordHash = function(password) {
+schema.methods.validatePasswordHash = function (password) {
   return bcrypt.compareSync(password, this.password);
 };
 

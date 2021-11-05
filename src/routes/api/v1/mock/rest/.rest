@@ -1,24 +1,20 @@
-GET http://{{host}}:{{port}}/api/v1/mock/rest
+GET {{host}}/api/v1/mock/rest
 Authorization: Bearer {{token}}
-
 ###
 
-POST http://{{host}}:{{port}}/api/v1/mock/rest
-Authorization: Bearer {{token}}
-Content-Type: application/json
-
-###
-
-GET http://{{host}}:{{port}}/api/v1/mock/rest/123456
-Authorization: Bearer {{token}}
-
-###
-
-PUT http://{{host}}:{{port}}/api/v1/mock/rest/123456
+POST {{host}}/api/v1/mock/rest
 Authorization: Bearer {{token}}
 Content-Type: application/json
-
 ###
 
-DELETE http://{{host}}:{{port}}/api/v1/mock/rest/123456
+GET {{host}}/api/v1/mock/rest/123456
+Authorization: Bearer {{token}}
+###
+
+PUT {{host}}/api/v1/mock/rest/123456
+Authorization: Bearer {{token}}
+Content-Type: application/json
+###
+
+DELETE {{host}}/api/v1/mock/rest/123456
 Authorization: Bearer {{token}}

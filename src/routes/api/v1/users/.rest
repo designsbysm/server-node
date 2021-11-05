@@ -1,26 +1,38 @@
-GET http://{{host}}:{{port}}/api/v1/users
-Authorization: Bearer {{token}}
+POST {{host}}/api/v1/users
+Content-Type: application/json
 
+{
+  "name": {
+    "first": "Scott",
+    "last": "Matthews"
+  },
+  "username": "{{username}}",
+	"password": "{{password}}",
+  "type": "basic",
+  "role": "admin"
+}
 ###
 
-GET http://{{host}}:{{port}}/api/v1/users/5c61d168089eb272f5f97527
+GET {{host}}/api/v1/users
 Authorization: Bearer {{token}}
-
 ###
 
-POST http://{{host}}:{{port}}/api/v1/users/query
+GET {{host}}/api/v1/users/5c61d168089eb272f5f97527
+Authorization: Bearer {{token}}
+###
+
+POST {{host}}/api/v1/users/query
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
 {}
-
 ###
-GET http://{{host}}:{{port}}/api/v1/users/current
+
+GET {{host}}/api/v1/users/current
 Authorization: Bearer {{token}}
-
 ###
 
-PUT http://{{host}}:{{port}}/api/v1/users/5c61d168089eb272f5f97527
+PUT {{host}}/api/v1/users/5c61d168089eb272f5f97527
 Authorization: Bearer {{token}}
 Content-Type: application/json
 

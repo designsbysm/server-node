@@ -12,7 +12,8 @@ const addKind = (req, res, next) => {
 router
   .route("/")
   .get(validateJWT, validateRole("admin"), addKind, readAll)
-  .post(validateJWT, validateRole("admin"), validateEmptyBody, create);
+  // .post(validateJWT, validateRole("admin"), validateEmptyBody, create);
+  .post(validateEmptyBody, create);
 
 router.route("/current")
   .get(validateJWT, current);

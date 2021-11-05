@@ -1,9 +1,8 @@
-GET http://{{host}}:{{port}}/api/v1/options/test
+GET {{host}}/api/v1/options/test
 Authorization: Bearer {{token}}
-
 ###
 
-PUT http://{{host}}:{{port}}/api/v1/options/test
+PUT {{host}}/api/v1/options/test
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
