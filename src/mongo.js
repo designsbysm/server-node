@@ -1,15 +1,11 @@
-import "dotenv/config";
-import { missingConfig } from "./tools/messages";
+import config from "./config";
 import bluebird from "bluebird";
 import mongoose from "mongoose";
 
-if (!process.env.MONGO_CONNECTION) {
-  console.error(missingConfig);
-  process.exit(1);
-}
+const { db } = config;
 
 mongoose.Promise = bluebird.Promise;
-mongoose.connect(process.env.MONGO_CONNECTION, {
+mongoose.connect(db.connection, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
