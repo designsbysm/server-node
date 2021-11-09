@@ -3,13 +3,15 @@ import config from "./config";
 import apiLogger from "./middleware/apiLogger";
 import errors from "./middleware/errorHandler";
 import express from "express";
+import fs from "fs";
 import helmet from "helmet";
+import http from "http";
+import https from "https";
 import memoryStore from "memorystore";
 import passport from "passport";
+import path from "path";
 import routes from "./routes";
 import session from "express-session";
-
-// console.log(routes);
 
 const { api, environment, secret, ssl } = config;
 const app = express();
@@ -34,4 +36,15 @@ app.use(express.json({ limit: "1mb" }));
 app.use(routes);
 app.use(errors);
 
-app.listen(port, () => console.info("%s server listening on %s", environment, port));
+const options = {};
+let server;
+
+if (api.protocol === "HTTPS") {
+  options.cert = fs.readFileSync(path.join(__dirname, ssl.cert));
+  options.key = fs.readFileSync(path.join(__dirname, ssl.key));
+  server = https.createServer(options, app);
+} else {
+  server = http.createServer(app);
+}
+
+server.listen(api.port, () => console.info(`API: ${environment} ${api.protocol} on ${api.port}`));
