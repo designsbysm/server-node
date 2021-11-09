@@ -1,5 +1,5 @@
 // import "./install";
-import { environment, port, secretSession } from "./config";
+import config from "./config";
 import apiLogger from "./middleware/apiLogger";
 import errors from "./middleware/errorHandler";
 import express from "express";
@@ -11,6 +11,7 @@ import session from "express-session";
 
 // console.log(routes);
 
+const { api, environment, secret, ssl } = config;
 const app = express();
 const MemoryStore = memoryStore(session);
 
@@ -20,7 +21,7 @@ app.use(
   session({
     resave: true,
     saveUninitialized: false,
-    secret: secretSession,
+    secret: secret.session,
     store: new MemoryStore({
       checkPeriod: 86400000,
     }),

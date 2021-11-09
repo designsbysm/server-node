@@ -1,10 +1,11 @@
-import { logTo } from "../config";
+import config from "../config";
 import FileLogger from "../tools/fileLogger";
 import onFinished from "on-finished";
 import winston from "winston";
 
+const { logging } = config;
 const logToConsole = ({ code, method, url }) => {
-  if (!logTo.console) {
+  if (!logging.console) {
     return;
   }
 

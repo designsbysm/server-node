@@ -1,10 +1,11 @@
 import bcrypt from "bcrypt";
-import { isDev } from "../config";
+import config from "../config";
 import db from "../mongo";
 import jwt from "jsonwebtoken";
 import mongoose from "mongoose";
 import timestamps from "mongoose-timestamp";
 
+const { isDev } = config;
 const schema = mongoose.Schema({
   active: {
     default: true,

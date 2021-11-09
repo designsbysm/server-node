@@ -1,11 +1,13 @@
-import { logTo } from "../config";
+import config from "../config";
 import winston from "winston";
 require("winston-daily-rotate-file");
 
+const { logging } = config;
+
 export default type => {
-  if (!logTo.file) {
+  if (!logging.file) {
     return {
-      log: () => {},
+      log: () => { },
     };
   }
 
